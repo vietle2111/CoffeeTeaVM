@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Refill } from '../model/refill';
+import { Refill } from '../models/refill';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
