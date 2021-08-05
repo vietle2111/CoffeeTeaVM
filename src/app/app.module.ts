@@ -4,12 +4,17 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RefillingFormComponent } from './ui/refilling-form/refilling-form.component';
-import { RouterModule } from '@angular/router';
+import { ChooseDrinkComponent } from './ui/choose-drink/choose-drink.component';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    RefillingFormComponent],
+    RefillingFormComponent,
+    ChooseDrinkComponent,
+    
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -17,6 +22,9 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,
+  RefillingFormComponent,
+  ChooseDrinkComponent
+  ]
 })
 export class AppModule { }

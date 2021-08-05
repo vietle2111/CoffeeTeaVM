@@ -10,6 +10,46 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body>
-  <app-root></app-root>
+
+  <div class="page-wrapper">
+      <!-- PAGE CONTAINER-->
+		<div class="page-container">
+			<!-- HEADER DESKTOP-->
+			<header class="header-desktop">
+
+        
+				  <div class="section-content section-content-p30">
+          
+					  <div class="container-fluid">
+              <nav class="navbar navbar-dark bg-primary">
+                <div class="col-md-3"></div>
+                <div class="col-md-4">
+                <!-- <div class="header-wrap"> -->
+                  <a type="button" class="btn btn-primary" href="drinks">Home</a>
+                  <a type="button" class="btn btn-primary" href="refills">Refills</a>
+                  <a type="button" class="btn btn-primary" href="drinks">Reports</a>
+                  <a type="button" class="btn btn-primary" href="drinks">Container Status</a>
+                <!-- </div> -->
+                </div>
+                <div class="col-md-3"></div>
+              </nav>
+						<!-- <div class="account-wrap"></div> -->
+					  </div>
+            </div>
+			</header>
+			<!-- END HEADER DESKTOP-->
+			<!-- MAIN CONTENT -->
+      <div class="main-content">
+				<div class="section-content section-content-p30">
+					<div class="container-fluid">
+						<!-- <router-outlet></router-outlet> -->
+						<app-root></app-root>
+						<br>
+						
+					</div>
+				</div>
+			</div>
+      <!-- END MAIN CONTENT-->
+  </div>
 </body>
 </html>
