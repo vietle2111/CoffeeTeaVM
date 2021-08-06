@@ -15,11 +15,9 @@
                   <tr class="table-active">
                 
                     <th scope="col"></th>
-
                     <th scope="col"></th>
                     <th scope="row"></th>
                     <th scope="col"></th>
-
                     <th scope="col"></th>
 
 
@@ -31,19 +29,21 @@
                     <th scope="row"></th>
                     <!-- <td>Tea</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Tea</button></td>
+                    <td><input name="tea_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>   Cup</td>
 
                     <td>{{maxCtn.teaContainer}} (Cup)</td>
                     <td>{{availableCtn.teaContainer}} (Cup)</td>
-                    <td><input name="tea_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/> kg</td>
+                    <td><input name="tea_cd" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Rs. 10.0/Cup</td>
                   </tr>
                   <tr>
                     <th scope="row"></th>
                     <!-- <td>Coffee</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Black Tea</button></td>
+                    <td><input name="coffee_cd" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
 
                     <td>{{maxCtn.teaContainer}} (Cups)</td>
                     <td>{{availableCtn.teaContainer}} (Cups)</td>
-                    <td><input name="coffee_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/> kg</td>
+                    <td><input name="coffee_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Rs. 5.0/Cup</td>
                   </tr>
                   <tr>
                     <th scope="col"></th>
@@ -52,7 +52,7 @@
 
                     <td>{{maxCtn.coffeeContainer}} (Cups)</td>
                     <td>{{availableCtn.coffeeContainer}} (Cups)</td>
-                    <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/> Rs.15.0/Cup</td>
+                    <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Rs.15.0/Cup</td>
                   </tr>
                   <tr>
                     <th scope="col"></th>
@@ -61,7 +61,7 @@
 
                     <td>{{maxCtn.coffeeContainer}} (Cup)</td>
                     <td>{{availableCtn.coffeeContainer}} (Cups)</td>
-                    <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/> Rs. 10.0/Cup</td>
+                    <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Rs. 10.0/Cup</td>
                   </tr>
                   <!-- <tr>
                     <th scope="col"></th>
