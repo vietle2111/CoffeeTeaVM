@@ -22,7 +22,7 @@ export class ChooseDrinkComponent implements OnInit {
 
 
   addDrink(chooseDrink){
-    this.id = (new Id).toISOString();
+    // this.id = (new Id).toISOString();
     let ctn = this.newContainerValue(chooseDrink);
     chooseDrink.value.teaRefill = chooseDrink.value.teaRefill*1000;
     chooseDrink.value.coffeeRefill = chooseDrink.value.coffeeRefill*1000;
@@ -37,7 +37,7 @@ export class ChooseDrinkComponent implements OnInit {
       chooseDrink.value.milkRefill>0){
         console.log(cd);
         //save a record for refill
-        this.cs.addDrink(cd).subscribe(cs => console.log(cs.toString()));
+        // this.cs.addDrink(cd).subscribe(cs => console.log(cs.toString()));
         //update container
         this.cs.updateCurrentContainer(ctn).subscribe(rs => console.log(rs.toString()));
         //update available containers status
