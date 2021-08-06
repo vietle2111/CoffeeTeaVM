@@ -1,8 +1,12 @@
 import { Drink } from "./drink";
 
 export class SaleList {
-    sale_id: number;
-    drink: Drink;
-    number_of_cup: number;
+    saleListId: number;
+    drink: DrinkLink;
+    numberOfCup: number;
     date: Date;
+    tmpDrink: Drink;
+}
+interface DrinkLink{
+    "href": string;
 }
