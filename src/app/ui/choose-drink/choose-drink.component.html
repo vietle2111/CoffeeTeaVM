@@ -30,40 +30,53 @@
                     <!-- <td>Tea</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Tea</button></td>
                     <td><input name="tea_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>   Cup</td>
+                    <td>  Rs. 10.0/Cup</td>
+                    <td><button #(click)="" class="button">Get Drink</button></td>
 
-                    <td>{{maxCtn.teaContainer}} (Cup)</td>
-                    <td>{{availableCtn.teaContainer}} (Cup)</td>
-                    <td><input name="tea_cd" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Rs. 10.0/Cup</td>
+                    <!-- <td>{{maxCtn.teaContainer}} (Cup)</td> -->
+                    <!-- <td>{{availableCtn.teaContainer}} (Cup)</td> -->
+       
                   </tr>
                   <tr>
                     <th scope="row"></th>
                     <!-- <td>Coffee</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Black Tea</button></td>
                     <td><input name="coffee_cd" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
+                    <td>Rs. 5.0/Cup</td>
+                    <td><button #(click)="" class="button">Get Drink</button></td>
 
-                    <td>{{maxCtn.teaContainer}} (Cups)</td>
-                    <td>{{availableCtn.teaContainer}} (Cups)</td>
-                    <td><input name="coffee_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Rs. 5.0/Cup</td>
+                    <!-- <td>{{maxCtn.teaContainer}} (Cups)</td> -->
+                    <!-- <td>{{availableCtn.teaContainer}} (Cups)</td> -->
+                 
                   </tr>
                   <tr>
                     <th scope="col"></th>
                     <!-- <td>Water</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Coffee</button></td>
                     <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
+                    <td> Rs.15.0/Cup</td>
+                    <td><button #(click)="" class="button">Get Drink</button></td>
 
-                    <td>{{maxCtn.coffeeContainer}} (Cups)</td>
-                    <td>{{availableCtn.coffeeContainer}} (Cups)</td>
-                    <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Rs.15.0/Cup</td>
+                    <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
+               
+                    <!-- <td>{{maxCtn.coffeeContainer}} (Cups)</td> -->
+      
                   </tr>
                   <tr>
                     <th scope="col"></th>
                     <!-- <td>Sugar</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Black Coffee</button></td>
                     <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
+                    <td>Rs. 10.0/Cup</td>
+                    <td><button #(click)="" class="button">Get Drink</button></td>
+                    <!-- <td>{{maxCtn.coffeeContainer}} (Cup)</td> -->
+                    <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
+  
+                  </tr>
+                  <tr>
+                    <th scope="col"></th>
+                    <!-- <td><button #(click)="" class="button">Get Drink</button></td> -->
 
-                    <td>{{maxCtn.coffeeContainer}} (Cup)</td>
-                    <td>{{availableCtn.coffeeContainer}} (Cups)</td>
-                    <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Rs. 10.0/Cup</td>
                   </tr>
                   <!-- <tr>
                     <th scope="col"></th>
@@ -73,6 +86,7 @@
                     <td><input name="milk_rf" type="number" value="0.0" max="{{(maxCtn.milkContainer-availableCtn.milkContainer).toFixed(3)}}" min="0.0"/> litters</td>
                   </tr> -->
                   <tr>
+
                     <th scope="row"></th>
                     <td colspan="3"><span name="msg"></span></td>
                     <!-- <td><button #(click)="" class="btn btn-primary btn-sm">Fill Containers</button></td> -->
