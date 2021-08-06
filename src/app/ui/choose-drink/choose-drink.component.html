@@ -49,6 +49,7 @@
                     <th scope="col"></th>
                     <!-- <td>Water</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Coffee</button></td>
+                    <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
 
                     <td>{{maxCtn.coffeeContainer}} (Cups)</td>
                     <td>{{availableCtn.coffeeContainer}} (Cups)</td>
@@ -58,6 +59,7 @@
                     <th scope="col"></th>
                     <!-- <td>Sugar</td> -->
                     <td><button #(click)="" class="btn btn-primary btn-sm">Black Coffee</button></td>
+                    <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
 
                     <td>{{maxCtn.coffeeContainer}} (Cup)</td>
                     <td>{{availableCtn.coffeeContainer}} (Cups)</td>
