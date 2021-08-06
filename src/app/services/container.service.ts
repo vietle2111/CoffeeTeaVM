@@ -8,6 +8,9 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ContainerService {
+  addDrink(cd: string) {
+    throw new Error('Method not implemented.');
+  }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
