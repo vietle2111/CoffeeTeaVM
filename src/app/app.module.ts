@@ -8,7 +8,7 @@ import { ChooseDrinkComponent } from './ui/choose-drink/choose-drink.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ContainerStatusComponent } from './ui/container-status/container-status.component';
 import { ReportOptionComponent } from './ui/report-option/report-option.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.component';
 
 
