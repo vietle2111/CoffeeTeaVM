@@ -8,6 +8,7 @@ import { ChooseDrinkComponent } from './ui/choose-drink/choose-drink.component';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ContainerStatusComponent } from './ui/container-status/container-status.component';
 import { ReportOptionComponent } from './ui/report-option/report-option.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,21 +17,23 @@ import { ReportOptionComponent } from './ui/report-option/report-option.componen
     RefillingFormComponent,
     ChooseDrinkComponent,
     ContainerStatusComponent,
-    ReportOptionComponent,
-    
+    ReportOptionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent,
-  RefillingFormComponent,
-  ChooseDrinkComponent,
-  ContainerStatusComponent,
-  ReportOptionComponent
+  bootstrap: [
+    AppComponent,
+    RefillingFormComponent,
+    ChooseDrinkComponent,
+    ContainerStatusComponent,
+    ReportOptionComponent
   ]
 })
 export class AppModule { }
