@@ -9,6 +9,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ContainerStatusComponent } from './ui/container-status/container-status.component';
 import { ReportOptionComponent } from './ui/report-option/report-option.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RefillingFormComponent,
     ChooseDrinkComponent,
     ContainerStatusComponent,
-    ReportOptionComponent
+    ReportOptionComponent,
+    SaleListDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     RefillingFormComponent,
     ChooseDrinkComponent,
     ContainerStatusComponent,
-    ReportOptionComponent
+    ReportOptionComponent,
+    SaleListDetailComponent
   ]
 })
 export class AppModule { }

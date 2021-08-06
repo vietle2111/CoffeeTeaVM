@@ -1,5 +1,3 @@
-<p>report-option works!</p>
-
 <br>
 <h1 style="text-align: center;">Report Option</h1>
 <br>
@@ -9,55 +7,19 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
             <table class="table table-sm">
-                <thead>
-                  <tr class="table-active">
-                    <th scope="col">SR</th>
-                    <th scope="col">Container</th>
-                    <th scope="col">Max Capacity</th>
-                    <th scope="col">Available</th>
-                    <th scope="col">Fill</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Tea</td>
-                    <td>{{maxCtn.teaContainer}} (kg)</td>
-                    <td>{{availableCtn.teaContainer}} (kg)</td>
-                    <td><input name="tea_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/> kg</td>
+                    <th scope="row">Total Sale Report</th>
+                    <td rowspan="1" style="text-align: center;">Today</td>
+                    <td rowspan="1" style="text-align: center;">All</td>
                   </tr>
                   <tr>
-                    <th scope="row">2</th>
-                    <td>Coffee</td>
-                    <td>{{maxCtn.coffeeContainer}} (kg)</td>
-                    <td>{{availableCtn.coffeeContainer}} (kg)</td>
-                    <td><input name="coffee_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/> kg</td>
+                    <th scope="row">Refilling Counter Details</th>
+                    <td style="text-align: center;">View</td>
                   </tr>
                   <tr>
-                    <th scope="row">3</th>
-                    <td>Water</td>
-                    <td>{{maxCtn.waterContainer}} (litters)</td>
-                    <td>{{availableCtn.waterContainer}} (litters)</td>
-                    <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.waterContainer-availableCtn.waterContainer).toFixed(3)}}" min="0.0"/> litters</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Sugar</td>
-                    <td>{{maxCtn.sugarContainer}} (kg)</td>
-                    <td>{{availableCtn.sugarContainer}} (kg)</td>
-                    <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.sugarContainer-availableCtn.sugarContainer).toFixed(3)}}" min="0.0"/> kg</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Milk</td>
-                    <td>{{maxCtn.milkContainer}} (litters)</td>
-                    <td>{{availableCtn.milkContainer}} (litters)</td>
-                    <td><input name="milk_rf" type="number" value="0.0" max="{{(maxCtn.milkContainer-availableCtn.milkContainer).toFixed(3)}}" min="0.0"/> litters</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"></th>
-                    <td colspan="3"><span name="msg"></span></td>
-                    <td><button #(click)="" class="btn btn-primary btn-sm">Fill Containers</button></td>
+                    <th scope="row">Container Status</th>
+                    <td style="text-align: center;">View</td>
                   </tr>
                 </tbody>
               </table>

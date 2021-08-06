@@ -3,6 +3,7 @@ import { Refill } from 'src/app/models/refill';
 import { Component, OnInit } from '@angular/core';
 import { ContainerService } from 'src/app/services/container.service';
 import { RefillService } from 'src/app/services/refill.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-refilling-form',
@@ -15,7 +16,7 @@ export class RefillingFormComponent implements OnInit {
   dates:string;
   msg:string;
 
-  constructor(private cs: ContainerService, private rs: RefillService) { }
+  constructor(private cs: ContainerService, private rs: RefillService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cs.getMaxContainerValue().subscribe(c => {this.maxCtn=c});
