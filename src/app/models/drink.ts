@@ -1,5 +1,5 @@
 export class Drink {
-    drinkId: number;
+    id: number;
     name: string;
     cost: number;
     sugar: number;
@@ -7,4 +7,5 @@ export class Drink {
     coffee: number;
     milk: number;
     water: number;
+    totalCup:number;
 }

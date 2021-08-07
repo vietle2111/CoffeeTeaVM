@@ -12,10 +12,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./refilling-form.component.css']
 })
 export class RefillingFormComponent implements OnInit {
-  maxCtn: Container;
-  availableCtn: Container;
-  dates:string;
-  msg:string;
+  maxCtn: Container = new Container;
+  availableCtn: Container = new Container;
+  dates:string = (new Date).toISOString();
+  msg:string = "";
 
   constructor(private cs: ContainerService, private rs: RefillService, private route:ActivatedRoute) { }
 
@@ -38,11 +38,11 @@ export class RefillingFormComponent implements OnInit {
     if (refillForm.value.teaRefill>0 || refillForm.value.coffeeRefill>0 ||
       refillForm.value.waterRefill>0 || refillForm.value.sugarRefill>0 ||
       refillForm.value.milkRefill>0){
-        console.log(rf);
+        //console.log(rf);
         //save a record for refill
-        this.rs.addRefill(rf).subscribe(rs => console.log(rs.toString()));
+        this.rs.addRefill(rf).subscribe();//rs => console.log(JSON.stringify(rs)));
         //update container
-        this.cs.updateCurrentContainer(ctn).subscribe(rs => console.log(rs.toString()));
+        this.cs.updateCurrentContainer(ctn).subscribe();//rs => console.log(JSON.stringify(rs)));
         //update available containers status
         this.cs.getAvailableContainerValue().subscribe(c => {this.availableCtn=c});
         this.msg="Containers are refilled successfully!";

@@ -10,6 +10,7 @@ import { ContainerStatusComponent } from './ui/container-status/container-status
 import { ReportOptionComponent } from './ui/report-option/report-option.component';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.component';
+import { RefillingDetailComponent } from './ui/refilling-detail/refilling-detail.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.
     ChooseDrinkComponent,
     ContainerStatusComponent,
     ReportOptionComponent,
-    SaleListDetailComponent
+    SaleListDetailComponent,
+    RefillingDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +34,11 @@ import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.
   providers: [],
   bootstrap: [
     AppComponent,
-    RefillingFormComponent,
     ChooseDrinkComponent,
     ContainerStatusComponent,
     ReportOptionComponent,
-    SaleListDetailComponent
+    SaleListDetailComponent, 
+    RefillingFormComponent
   ]
 })
 export class AppModule { }
