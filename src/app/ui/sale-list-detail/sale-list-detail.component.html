@@ -17,11 +17,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor = "let s of saleList">
-                        <th scope="row">{{s.saleListId}}</th>
-                        <td>{{s.tmpDrink.name}}</td>
-                        <td>{{s.numberOfCup}}</td>
-                        <td>{{s.tmpDrink.cost * s.numberOfCup}}</td>
+                      <tr *ngFor = "let s of drinkSaleList">
+                        <th scope="row">{{s.id}}</th>
+                        <td>{{s.name}}</td>
+                        <td>{{s.totalCup}}</td>
+                        <td>{{(s.cost*s.totalCup).toFixed(2)}}</td>
+                        <!-- <td>{{s.tmpDrink.name}}</td> -->
+                        <!-- <td>{{s.tmpDrink.cost * s.numberOfCup}}</td> -->
                       </tr>
                     </tbody>
                 </table>
@@ -38,11 +40,11 @@
                     <tbody>
                       <tr>
                         <th scope="row">Total number of cups</th>
-                        <td>{{number_of_cup}}</td>
+                        <td style="text-align: center;">{{number_of_cup}}</td>
                       </tr>
                       <tr>
                         <th scope="row">Total cost</th>
-                        <td>{{total_cost}}</td>
+                        <td>{{total_cost.toFixed(2) | currency:"USD"}}</td>
                       </tr>
                     </tbody>
                 </table></div>

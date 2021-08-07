@@ -27,6 +27,12 @@ export class SaleListService {
     const uri= this.baseUrl + "/saleLists";
     return this.httpc.post<string>(uri,sl,this.httpOptions);
   }
+
+  getDrinkSaleList(id: number):Observable<SaleList[]>{
+    const uri = this.baseUrl+"/saleLists/search/findByDrinkId?id="+id;
+    return this.httpc.get<SaleListResponse>(uri).pipe(map(res => res._embedded.saleLists));
+  }
+
 }
 
 interface SaleListResponse{

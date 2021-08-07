@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Drink } from 'src/app/models/drink';
 import { SaleList } from 'src/app/models/sale-list';
 import { DrinkService } from 'src/app/services/drink.service';
 import { SaleListService } from 'src/app/services/sale-list.service';
@@ -10,22 +11,46 @@ import { SaleListService } from 'src/app/services/sale-list.service';
   styleUrls: ['./sale-list-detail.component.css']
 })
 export class SaleListDetailComponent implements OnInit {
-  saleList: SaleList[] =[];
+  saleList: SaleList[]=[];
+  drinkSaleList: Drink[]=[];
   number_of_cup: number = 0;
   total_cost: number = 0;
 
   constructor(private sl: SaleListService, private route:ActivatedRoute, private ds: DrinkService) { }
 
   ngOnInit(): void {
-    this.sl.getSaleList().subscribe(rs => this.saleList = rs);
-    this.saleList.forEach(sale => {
-      console.log("sao la vay"+JSON.stringify(sale));
-      this.ds.getDrink(sale.drink.href).subscribe(dr => {sale.tmpDrink = dr} );
-      console.log(JSON.stringify(sale.tmpDrink));
-      this.total_cost = this.total_cost+sale.tmpDrink.cost;
-      this.number_of_cup = this.number_of_cup+sale.numberOfCup;
-    });
+    this.getSaleByDrink();
   }
 
+  //Get list of sales in details
+  private getSaleDetails(){
+    this.sl.getSaleList().subscribe( list =>{
+        this.saleList=list;
+        this.saleList.forEach(dt => {
+          this.number_of_cup += dt.numberOfCup;
+          this.ds.getDrink(dt._links.drink.href).subscribe(dr => {
+            this.total_cost += dr.cost*dt.numberOfCup;
+            dt.tmpDrink=dr;
+          });
+        })
+      }
+    );
+  }
+  //Get list of sales by drink
+  private getSaleByDrink(){
+    this.ds.getDrinkList().subscribe(dr => {
+      this.drinkSaleList = dr;
+      this.drinkSaleList.forEach( dsl =>  {
+        dsl.totalCup = 0;
+        this.sl.getDrinkSaleList(dsl.id).subscribe(sl => {
+          sl.forEach(s =>{
+            dsl.totalCup += s.numberOfCup;
+          });
+          this.number_of_cup += dsl.totalCup;
+          this.total_cost += dsl.totalCup*dsl.cost;
+        });
+      })
+    })
+    }
 
 }
