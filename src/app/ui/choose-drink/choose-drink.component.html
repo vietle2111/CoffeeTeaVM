@@ -17,8 +17,8 @@
                     <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="row"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">  </th>
+                    <th scope="col">  </th>
 
 
                     <!-- <th scope="row">Fill</th> -->
@@ -32,7 +32,13 @@
                     <td><input name="tea_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>   Cup</td>
                     <td>  Rs. 10.0/Cup</td>
                     <td><button #(click)="" class="button">Get Drink</button></td>
-
+<p id="drink"></p>
+<script>
+  function myFunction()
+  {
+    document.getElementById("drink").innerHTML = "1 Cup Tea Produced"
+  }
+</script>
                     <!-- <td>{{maxCtn.teaContainer}} (Cup)</td> -->
                     <!-- <td>{{availableCtn.teaContainer}} (Cup)</td> -->
        
@@ -69,6 +75,7 @@
                     <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/>  Cup</td>
                     <td>Rs. 10.0/Cup</td>
                     <td><button #(click)="" class="button">Get Drink</button></td>
+
                     <!-- <td>{{maxCtn.coffeeContainer}} (Cup)</td> -->
                     <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
   
