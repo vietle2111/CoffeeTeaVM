@@ -10,6 +10,7 @@ import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.
 
 const routes: Routes = [
   {path: '', redirectTo: '/drinks', pathMatch:'full'},
+  {path: 'reports/containers', redirectTo: '/containers', pathMatch:'full'},
   {path: 'drinks', component: ChooseDrinkComponent},
   {path: 'refills', component: RefillingFormComponent},
   {path: 'reports', component: ReportOptionComponent},
