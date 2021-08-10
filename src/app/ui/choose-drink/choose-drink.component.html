@@ -33,7 +33,7 @@
                 <td><input name="tea_rf" type="number" value="0.0"
                     max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
                 <td> Rs. 10.0/Cup</td>
-                <td><button #(click)="" class="button">Get Drink</button></td>
+                <td><button onclick=selectDrink() class="button">Get Drink</button></td>
                 <p id="drink"></p>
                 <script>
                   function selectDrink() {
@@ -64,7 +64,7 @@
                 <td><input name="water_rf" type="number" value="0.0"
                     max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0" /> Cup</td>
                 <td> Rs.15.0/Cup</td>
-                <td><button #(click)="" class="button">Get Drink</button></td>
+                <td><button onclick=selectDrink() class="button">Get Drink</button></td>
 
                 <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
 
@@ -78,7 +78,7 @@
                 <td><input name="sugar_rf" type="number" value="0.0"
                     max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
                 <td>Rs. 10.0/Cup</td>
-                <td><button #(click)="" class="button">Get Drink</button></td>
+                <td><button onclick=selectDrink() class="button">Get Drink</button></td>
 
                 <!-- <td>{{maxCtn.coffeeContainer}} (Cup)</td> -->
                 <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
