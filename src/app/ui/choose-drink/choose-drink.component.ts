@@ -22,8 +22,8 @@ export class ChooseDrinkComponent implements OnInit {
 
 
   addDrink(chooseDrink){
-    // this.id = (new Id).toISOString();
-    let ctn = this.newContainerValue(chooseDrink);
+
+    let ctn = this.newDrinkOrder(chooseDrink);
     chooseDrink.value.teaRefill = chooseDrink.value.teaRefill*1000;
     chooseDrink.value.coffeeRefill = chooseDrink.value.coffeeRefill*1000;
     chooseDrink.value.blackCoffeeRefill = chooseDrink.value.blackCoffeeRefill*1000;
@@ -35,10 +35,8 @@ export class ChooseDrinkComponent implements OnInit {
     if (chooseDrink.value.teaRefill>0 || chooseDrink.value.coffeeRefill>0 ||
       chooseDrink.value.waterRefill>0 || chooseDrink.value.sugarRefill>0 ||
       chooseDrink.value.milkRefill>0){
-        console.log(cd);
-        //save a record for refill
-        // this.cs.addDrink(cd).subscribe(cs => console.log(cs.toString()));
-        //update container
+        console.log(chooseDrink);
+  
         this.cs.updateCurrentContainer(ctn).subscribe(rs => console.log(rs.toString()));
         //update available containers status
         this.cs.getAvailableContainerValue().subscribe(c => {this.availableCtn=c});
@@ -47,14 +45,14 @@ export class ChooseDrinkComponent implements OnInit {
     else this.msg="Please enter the drink choice!";
   }
 
-  newContainerValue(cd: any):any{
-    let newCtn = new Container();
-    newCtn.teaContainer = this.availableCtn.teaContainer + cd.value.teaRefill;
-    newCtn.coffeeContainer = this.availableCtn.coffeeContainer + cd.value.coffeeRefill;
-    newCtn.waterContainer = this.availableCtn.waterContainer + cd.value.waterRefill;
-    newCtn.sugarContainer = this.availableCtn.sugarContainer + cd.value.sugarRefill;
-    newCtn.milkContainer = this.availableCtn.milkContainer + cd.value.milkRefill;
-    return JSON.stringify(newCtn);
+  newDrinkOrder(cd: any):any{
+    let newDrink = new Container();
+    newDrink.teaContainer = this.availableCtn.teaContainer;
+    newDrink.coffeeContainer = this.availableCtn.coffeeContainer;
+    newDrink.waterContainer = this.availableCtn.waterContainer;
+    newDrink.sugarContainer = this.availableCtn.sugarContainer;
+    newDrink.milkContainer = this.availableCtn.milkContainer;
+    return JSON.stringify(newDrink);
   }
 
   selectDrink()

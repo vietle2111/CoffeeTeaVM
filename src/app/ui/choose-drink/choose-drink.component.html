@@ -34,10 +34,12 @@
                     max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
                 <td> Rs. 10.0/Cup</td>
                 <td><button onclick=selectDrink() class="button">Get Drink</button></td>
-                <p id="drink"></p>
-                <script>
+                <!-- <p id="drink"></p> -->
+                <script type = 'text/javascript'>
+                var drink;
+                console.log("1 Cup produced")
                   function selectDrink() {
-                    document.getElementById("drink").innerHTML = "1 Cup Tea Produced"
+                    return document.getElementById("drink").innerHTML = "1 Cup Tea Produced"
                   }
                 </script>
                 <!-- <td>{{maxCtn.teaContainer}} (Cup)</td> -->
