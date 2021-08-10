@@ -57,4 +57,9 @@ export class ChooseDrinkComponent implements OnInit {
     return JSON.stringify(newCtn);
   }
 
+  selectDrink()
+  {
+    document.write("Drink was Selected");
+  }
+
 }
