@@ -23,6 +23,12 @@ export class RefillService {
     return this.httpc.get<RefillResponse>(uri).pipe(map(res => res._embedded.refills));
   }
 
+  getRefillToday():Observable<Refill[]>{
+    const uri= this.baseUrl + "/refills/search/findByToday";
+    return this.httpc.get<RefillResponse>(uri).pipe(map(res => res._embedded.refills));
+  }
+
+
   addRefill(rf: any):Observable<string>{
     const uri= this.baseUrl + "/refills";
     return this.httpc.post<string>(uri,rf,this.httpOptions);

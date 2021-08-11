@@ -24,12 +24,15 @@ export class SaleListService {
   }
 
   addSaleList(sl: any):Observable<string>{
-    const uri= this.baseUrl + "/saleLists";
+    const uri= this.baseUrl + "/saleLists/add";
     return this.httpc.post<string>(uri,sl,this.httpOptions);
   }
 
-  getDrinkSaleList(id: number):Observable<SaleList[]>{
-    const uri = this.baseUrl+"/saleLists/search/findByDrinkId?id="+id;
+  getDrinkSaleList(id: number, isToday: boolean):Observable<SaleList[]>{
+    let uri = this.baseUrl+"/saleLists/search/findByDrinkId?id="+id;
+    if (isToday) 
+      uri = this.baseUrl+"/saleLists/search/findByToday?drinkId="+id;
+
     return this.httpc.get<SaleListResponse>(uri).pipe(map(res => res._embedded.saleLists));
   }
 

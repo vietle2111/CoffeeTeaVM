@@ -15,11 +15,15 @@ export class SaleListDetailComponent implements OnInit {
   drinkSaleList: Drink[]=[];
   number_of_cup: number = 0;
   total_cost: number = 0;
+  isToday: boolean = false;
 
   constructor(private sl: SaleListService, private route:ActivatedRoute, private ds: DrinkService) { }
 
   ngOnInit(): void {
-    this.getSaleByDrink();
+    this.route.paramMap.subscribe(()=>{
+      if (this.route.snapshot.paramMap.get('date')==='today')  this.isToday=true;
+      this.getSaleByDrink();
+    });
   }
 
   //Get list of sales in details
@@ -42,7 +46,7 @@ export class SaleListDetailComponent implements OnInit {
       this.drinkSaleList = dr;
       this.drinkSaleList.forEach( dsl =>  {
         dsl.totalCup = 0;
-        this.sl.getDrinkSaleList(dsl.id).subscribe(sl => {
+        this.sl.getDrinkSaleList(dsl.id, this.isToday).subscribe(sl => {
           sl.forEach(s =>{
             dsl.totalCup += s.numberOfCup;
           });

@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'refills', component: RefillingFormComponent},
   {path: 'reports', component: ReportOptionComponent},
   {path: 'containers', component: ContainerStatusComponent},
-  {path: 'reports/saleLists', component: SaleListDetailComponent},
+  {path: 'reports/saleLists/:date', component: SaleListDetailComponent},
   {path: 'reports/refillings', component: RefillingDetailComponent}
 ];
 
