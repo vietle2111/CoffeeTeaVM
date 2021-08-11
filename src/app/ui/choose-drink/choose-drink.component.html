@@ -9,107 +9,88 @@
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <!-- <form #refillForm="ngForm" (ngSubmit)="addDrink()"> -->
+          <form #chooseDrink="ngForm" (ngSubmit)="addDrink(chooseDrink)">
+            <table class="table table-sm">
+              <thead>
+                <tr class="table-active">
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="row"></th>
+                  <th scope="col"> </th>
+                  <th scope="col"> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <!-- <td>Tea</td> -->
+                  <td><button #(click)="" class="btn btn-primary btn-sm">Tea </button></td>
+                  <td><input name="teaRefill" id="teaRefill" type="number" value=0.000 placeholder="0.000"
+                      max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
+                  <td> Rs. 10.0/Cup</td>
+                  <td><button onclick=addDrink() class="button">Get Drink</button></td>
+                  <!-- <p id="drink"></p> -->
+                  <!-- <td>{{maxCtn.teaContainer}} (Cup)</td> -->
+                  <!-- <td>{{availableCtn.teaContainer}} (Cup)</td> -->
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <!-- <td>Coffee</td> -->
+                  <td><button #(click)="" class="btn btn-primary btn-sm">Black Tea </button></td>
+                  <td><input name="teaRefill" type="number" value="0.0"
+                      max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0" /> Cup</td>
+                  <td>Rs. 5.0/Cup</td>
+                  <td><button onclick=addDrink() class="button">Get Drink</button></td>
 
-          <table class="table table-sm">
-            <thead>
-              <tr class="table-active">
+                  <!-- <td>{{maxCtn.teaContainer}} (Cups)</td> -->
+                  <!-- <td>{{availableCtn.teaContainer}} (Cups)</td> -->
 
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="row"></th>
-                <th scope="col"> </th>
-                <th scope="col"> </th>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <!-- <td>Water</td> -->
+                  <td><button #(click)="" class="btn btn-primary btn-sm">Coffee</button></td>
+                  <td><input name="coffeeRefill" type="number" value="0.0"
+                      max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0" /> Cup</td>
+                  <td> Rs.15.0/Cup</td>
+                  <td>
+                    <button onclick=addDrink() class="button">Get Drink</button>
+                    <!-- <button type="submit" class="btn btn-sm">Get Drink</button> -->
+                  </td>
+                  <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
+                  <!-- <td>{{maxCtn.coffeeContainer}} (Cups)</td> -->
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <!-- <td>Sugar</td> -->
+                  <td><button #(click)="" class="btn btn-primary btn-sm">Black Coffee</button></td>
+                  <td><input name="coffeeRefill" type="number" value="0.0"
+                      max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
+                  <td>Rs. 10.0/Cup</td>
+                  <td><button onclick=selectDrink() class="button">Get Drink</button></td>
+                  <!-- <td>{{maxCtn.coffeeContainer}} (Cup)</td> -->
+                  <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
+                </tr>
+                <tr>
+                  <th scope="col"></th>
+                  <!-- <td><button #(click)="" class="button">Get Drink</button></td> -->
 
-
-                <!-- <th scope="row">Fill</th> -->
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"></th>
-                <!-- <td>Tea</td> -->
-                <td><button #(click)="" class="btn btn-primary btn-sm">Tea </button></td>
-                <td><input name="tea_rf" type="number" value="0.0"
-                    max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
-                <td> Rs. 10.0/Cup</td>
-                <td><button onclick=selectDrink() class="button">Get Drink</button></td>
-                <!-- <p id="drink"></p> -->
-                <script type = 'text/javascript'>
-                var drink;
-                console.log("1 Cup produced")
-                  function selectDrink() {
-                    return document.getElementById("drink").innerHTML = "1 Cup Tea Produced"
-                  }
-                </script>
-                <!-- <td>{{maxCtn.teaContainer}} (Cup)</td> -->
-                <!-- <td>{{availableCtn.teaContainer}} (Cup)</td> -->
-
-              </tr>
-              <tr>
-                <th scope="row"></th>
-                <!-- <td>Coffee</td> -->
-                <td><button #(click)="" class="btn btn-primary btn-sm">Black Tea </button></td>
-                <td><input name="coffee_cd" type="number" value="0.0"
-                    max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0" /> Cup</td>
-                <td>Rs. 5.0/Cup</td>
-                <td><button onclick = selectDrink() class="button">Get Drink</button></td>
-
-                <!-- <td>{{maxCtn.teaContainer}} (Cups)</td> -->
-                <!-- <td>{{availableCtn.teaContainer}} (Cups)</td> -->
-
-              </tr>
-              <tr>
-                <th scope="col"></th>
-                <!-- <td>Water</td> -->
-                <td><button #(click)="" class="btn btn-primary btn-sm">Coffee</button></td>
-                <td><input name="water_rf" type="number" value="0.0"
-                    max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0" /> Cup</td>
-                <td> Rs.15.0/Cup</td>
-                <td><button onclick=selectDrink() class="button">Get Drink</button></td>
-
-                <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
-
-                <!-- <td>{{maxCtn.coffeeContainer}} (Cups)</td> -->
-
-              </tr>
-              <tr>
-                <th scope="col"></th>
-                <!-- <td>Sugar</td> -->
-                <td><button #(click)="" class="btn btn-primary btn-sm">Black Coffee</button></td>
-                <td><input name="sugar_rf" type="number" value="0.0"
-                    max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0" /> Cup</td>
-                <td>Rs. 10.0/Cup</td>
-                <td><button onclick=selectDrink() class="button">Get Drink</button></td>
-
-                <!-- <td>{{maxCtn.coffeeContainer}} (Cup)</td> -->
-                <!-- <td>{{availableCtn.coffeeContainer}} (Cups)</td> -->
-
-              </tr>
-              <tr>
-                <th scope="col"></th>
-                <!-- <td><button #(click)="" class="button">Get Drink</button></td> -->
-
-              </tr>
-              <!-- <tr>
+                </tr>
+                <!-- <tr>
                     <th scope="col"></th>
                     <td>Milk</td>
                     <td>{{maxCtn.milkContainer}} (litters)</td>
                     <td>{{availableCtn.milkContainer}} (litters)</td>
                     <td><input name="milk_rf" type="number" value="0.0" max="{{(maxCtn.milkContainer-availableCtn.milkContainer).toFixed(3)}}" min="0.0"/> litters</td>
                   </tr> -->
-              <tr>
+                <tr>
 
-                <th scope="row"></th>
-                <td colspan="3"><span name="msg"></span></td>
-                <!-- <td><button #(click)="" class="btn btn-primary btn-sm">Fill Containers</button></td> -->
-              </tr>
-            </tbody>
-          </table>
+                  <th scope="row"></th>
+                  <td colspan="3"><span name="msg"></span></td>
+                  <!-- <td><button #(click)="" class="btn btn-primary btn-sm">Fill Containers</button></td> -->
+                </tr>
+              </tbody>
+            </table>
 
-          <!-- </div> -->
-          <div class="col-md-3"></div>
-          <!-- </div> -->
-          <!-- </div> -->
-          <!-- </div> -->
-          <!-- </body> -->
+            <div class="col-md-3"></div>
+   
