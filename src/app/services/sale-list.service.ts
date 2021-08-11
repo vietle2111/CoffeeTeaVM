@@ -23,9 +23,9 @@ export class SaleListService {
     return this.httpc.get<SaleListResponse>(uri).pipe(map(res => res._embedded.saleLists));
   }
 
-  addSaleList(sl: any):Observable<string>{
+  addSaleList(sl: any):Observable<SaleList>{
     const uri= this.baseUrl + "/saleLists/add";
-    return this.httpc.post<string>(uri,sl,this.httpOptions);
+    return this.httpc.post<SaleList>(uri,sl,this.httpOptions);
   }
 
   getDrinkSaleList(id: number, isToday: boolean):Observable<SaleList[]>{
