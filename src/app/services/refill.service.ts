@@ -29,9 +29,9 @@ export class RefillService {
   }
 
 
-  addRefill(rf: any):Observable<string>{
+  addRefill(rf: any):Observable<Refill>{
     const uri= this.baseUrl + "/refills";
-    return this.httpc.post<string>(uri,rf,this.httpOptions);
+    return this.httpc.post<Refill>(uri,rf,this.httpOptions);
   }
 }
 

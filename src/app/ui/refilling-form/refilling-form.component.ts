@@ -40,12 +40,11 @@ export class RefillingFormComponent implements OnInit {
       refillForm.value.milkRefill>0){
         //console.log(rf);
         //save a record for refill
-        this.rs.addRefill(rf).subscribe();//rs => console.log(JSON.stringify(rs)));
+        this.rs.addRefill(rf).subscribe(rs =>{ this.msg = (rs.refillId!=0)? "Containers are refilled successfully!":"Errors!"});
         //update container
-        this.cs.updateCurrentContainer(ctn).subscribe();//rs => console.log(JSON.stringify(rs)));
+        this.cs.updateCurrentContainer(ctn).subscribe(rs =>{console.log("Containers are updated!")});
         //update available containers status
         this.cs.getAvailableContainerValue().subscribe(c => {this.availableCtn=c});
-        this.msg="Containers are refilled successfully!";
       }
     else this.msg="Please enter the refill amount!";
   }

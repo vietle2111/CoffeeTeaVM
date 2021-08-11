@@ -26,20 +26,20 @@ export class SaleListDetailComponent implements OnInit {
     });
   }
 
-  //Get list of sales in details
-  private getSaleDetails(){
-    this.sl.getSaleList().subscribe( list =>{
-        this.saleList=list;
-        this.saleList.forEach(dt => {
-          this.number_of_cup += dt.numberOfCup;
-          this.ds.getDrink(dt._links.drink.href).subscribe(dr => {
-            this.total_cost += dr.cost*dt.numberOfCup;
-            dt.tmpDrink=dr;
-          });
-        })
-      }
-    );
-  }
+  // //Get list of sales in details
+  // private getSaleDetails(){
+  //   this.sl.getSaleList().subscribe( list =>{
+  //       this.saleList=list;
+  //       this.saleList.forEach(dt => {
+  //         this.number_of_cup += dt.numberOfCup;
+  //         this.ds.getDrink(dt._links.drink.href).subscribe(dr => {
+  //           this.total_cost += dr.cost*dt.numberOfCup;
+  //           dt.tmpDrink=dr;
+  //         });
+  //       })
+  //     }
+  //   );
+  // }
   //Get list of sales by drink
   private getSaleByDrink(){
     this.ds.getDrinkList().subscribe(dr => {
