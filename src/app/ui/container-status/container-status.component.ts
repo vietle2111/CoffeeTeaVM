@@ -1,6 +1,7 @@
 import { Container } from 'src/app/models/container';
 import { ContainerService } from 'src/app/services/container.service';
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-container-status',
@@ -11,7 +12,7 @@ export class ContainerStatusComponent implements OnInit {
 
   maxCtn: Container;
   availableCtn: Container;
-  constructor(private cs:ContainerService) { }
+  constructor(private cs:ContainerService, private router:Router) { }
 
   ngOnInit(): void {
     this.cs.getMaxContainerValue().subscribe(c => {this.maxCtn=c});
