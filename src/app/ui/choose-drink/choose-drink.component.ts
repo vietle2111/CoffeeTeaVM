@@ -2,6 +2,8 @@ import { Container } from 'src/app/models/container';
 import {Drink} from 'src/app/models/drink';
 import { Component, OnInit } from '@angular/core';
 import { ContainerService } from 'src/app/services/container.service';
+import { DrinkService } from 'src/app/services/drink.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-choose-drink',
@@ -9,11 +11,11 @@ import { ContainerService } from 'src/app/services/container.service';
   styleUrls: ['./choose-drink.component.css']
 })
 export class ChooseDrinkComponent implements OnInit {
-  maxCtn: Container;
-  availableCtn: Container;
-  id:string;
-  msg:string;
-  constructor(private cs:ContainerService) { }
+  maxCtn: Container = new Container;
+  availableCtn: Container = new Container;
+  dates:string = (new Date).toISOString();
+  msg:string = "";
+  constructor(private cs:ContainerService, private ds: DrinkService, private route:ActivatedRoute ) { }
 
   ngOnInit(): void {
     this.cs.getMaxContainerValue().subscribe(c => {this.maxCtn=c});
@@ -22,7 +24,7 @@ export class ChooseDrinkComponent implements OnInit {
 
 
   addDrink(chooseDrink){
-
+this.dates = (new Date).toISOString();
     let ctn = this.newDrinkOrder(chooseDrink);
     chooseDrink.value.teaRefill = chooseDrink.value.teaRefill*1000;
     chooseDrink.value.coffeeRefill = chooseDrink.value.coffeeRefill*1000;
@@ -35,12 +37,13 @@ export class ChooseDrinkComponent implements OnInit {
     if (chooseDrink.value.teaRefill>0 || chooseDrink.value.coffeeRefill>0 ||
       chooseDrink.value.waterRefill>0 || chooseDrink.value.sugarRefill>0 ||
       chooseDrink.value.milkRefill>0){
-        console.log(chooseDrink);
-  
-        this.cs.updateCurrentContainer(ctn).subscribe(rs => console.log(rs.toString()));
-        //update available containers status
-        this.cs.getAvailableContainerValue().subscribe(c => {this.availableCtn=c});
-        this.msg="Drink has been chosen successfully!";
+        console.log(cd);
+       //this.cs.addDrink(cd).subscribe();
+        this.cs.updateCurrentContainer(ctn).subscribe();
+        this.cs.getAvailableContainerValue().subscribe(c=>{this.availableCtn});
+        this.msg="Drink has been chosen successfully";
+
+     
       }
     else this.msg="Please enter the drink choice!";
   }
