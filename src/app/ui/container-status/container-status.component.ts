@@ -10,8 +10,8 @@ import { Router} from '@angular/router';
 })
 export class ContainerStatusComponent implements OnInit {
 
-  maxCtn: Container;
-  availableCtn: Container;
+  maxCtn: Container = new Container;
+  availableCtn: Container = new Container;
   constructor(private cs:ContainerService, private router:Router) { }
 
   ngOnInit(): void {
