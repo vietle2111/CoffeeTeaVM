@@ -16,15 +16,17 @@
                     <label #drinkId id="id" name="id">{{dr.id}}</label>
                   </th>
                   <td><h6>{{dr.name}}</h6></td>
-                  <td><input name="numberOfCup" id="numberOfCup" type="number" value=0 [(ngModel)]="numberOfCup" placeholder="0" max="10" min="0"/> Cup
+                  <td><input name="numberOfCup_{{dr.id}}" id="numberOfCup_{{dr.id}}" type="number" placeholder="0" max="10" min="0" /> Cup
                   </td>
                   <td> Rs. {{dr.cost}}/Cup</td>
                   <td><button (click)="addSaleList(dr)" class="btn btn-primary btn-sm">Get Drink</button></td>
               </tr>
             </tbody>
           </table>
-          <br>
-          <span readonly class="form-control-plaintext">{{msg}}</span>
+          <div class="alert {{alert_type}} alert-dismissible fade show" role="alert" id="alert_msg" style="visibility: hidden;">
+            <strong>{{msg}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="hideAlert()"></button>
+          </div>
         </div>
         <div class="col-md-3"></div>
       </div>
