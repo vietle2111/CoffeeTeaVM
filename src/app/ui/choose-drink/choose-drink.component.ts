@@ -15,8 +15,11 @@ import { Container } from 'src/app/models/container';
 export class ChooseDrinkComponent implements OnInit {
   drinkList: Drink[] = [];
   dates:string = (new Date).toISOString();
-  msg:string = "Can't get drink!!!";
+  msg:string = "";
   numberOfCup:number=0;
+  newCtnValue = new Container;
+  isEnough = false;
+    
 
   constructor(private cs:ContainerService, private ds: DrinkService, private route:ActivatedRoute, private sls:SaleListService ) { }
 
@@ -24,32 +27,36 @@ export class ChooseDrinkComponent implements OnInit {
     this.ds.getDrinkList().subscribe(dl => this.drinkList = dl);
   }
 
-  addSaleList(dr: Drink){
-    //console.log(JSON.stringify(dr)+this.numberOfCup);
-    var isSold = true;
+  addSaleList(dr:Drink){
+    let noc = this.numberOfCup;
+    this.cs.getAvailableContainerValue().subscribe(rs => {
+    this.newCtnValue.teaContainer = rs.teaContainer - dr.tea*noc/1000;
+    this.newCtnValue.coffeeContainer = rs.coffeeContainer - dr.coffee*noc/1000;
+    this.newCtnValue.milkContainer = rs.milkContainer - dr.milk*noc/1000;
+    this.newCtnValue.sugarContainer = rs.sugarContainer - dr.sugar*noc/1000;
+    this.newCtnValue.waterContainer = rs.waterContainer - dr.water*noc/1000;
+    //check if containers are enough for making drinks
+    if (this.newCtnValue.teaContainer<=0 || this.newCtnValue.coffeeContainer<=0 ||
+      this.newCtnValue.milkContainer<=0 || this.newCtnValue.sugarContainer<=0 ||
+      this.newCtnValue.waterContainer<=0)
+      this.msg = "Containers are not enough. Please refill";
+    else{
+      // update containers with new avalue
+      this.cs.updateCurrentContainer(this.newCtnValue).subscribe(rs => {this.msg += " Containers are updated"});
+      // add sales into salelist
+      this.sls.addSaleList(this.setSaleListValue(dr,noc)).subscribe(rs =>{ 
+        if (rs.saleListId!=0){
+          this.msg = `${this.numberOfCup} ${dr.name}(s) have been made.`;
+        }});
+    }
+    });
+  }
+
+  setSaleListValue(dr: Drink, noc: number):string{
     let newSale = new SaleList;
     newSale.drink = dr;
     newSale.date = new Date;
-    newSale.numberOfCup = this.numberOfCup;
-    var sv = JSON.stringify(newSale)
-    this.sls.addSaleList(sv).subscribe(rs =>{ 
-      if (rs.saleListId!=0){
-        this.msg = `${dr.name} has been chosen successfully`;
-        //update containers
-
-        this.cs.updateCurrentContainer(this.setContainerValue(dr, this.numberOfCup)).subscribe(rs => {});
-      }});
-  }
-
-  setContainerValue(dr:Drink, noc: number):Container{
-    let availableCtn: Container;
-    this.cs.getAvailableContainerValue().subscribe(rs => availableCtn = rs);
-    let newCtnValue = new Container;
-    newCtnValue.teaContainer = availableCtn.teaContainer - dr.tea*noc/1000;
-    newCtnValue.coffeeContainer = availableCtn.coffeeContainer - dr.coffee*noc/1000;
-    newCtnValue.milkContainer = availableCtn.milkContainer - dr.milk*noc/1000;
-    newCtnValue.sugarContainer =availableCtn.sugarContainer - dr.sugar*noc/1000;
-    newCtnValue.waterContainer = availableCtn.waterContainer - dr.water*noc/1000;
-    return newCtnValue;
+    newSale.numberOfCup = noc;
+    return JSON.stringify(newSale);
   }
 }
