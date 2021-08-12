@@ -65,13 +65,17 @@
                       save="0.00" oninput="validity.valid ? this.save = value : value = this.save;" ngModel/> liters</td>
                   </tr>
                   <tr>
-                    <th scope="row"><input #date name="date" id="date" style="visibility:hidden;" type="text" ngModel size="1"/></th>
-                    <td colspan="3"><span id="msg" name="msg">{{msg}}</span></td>
+                    <th scope="row"></th>
+                    <td colspan="3"></td>
                     <td><button type="submit" class="btn btn-primary btn-sm">Fill Containers</button></td>
                   </tr>
                 </tbody>
               </table>
               </form>
+              <div class="alert {{alert_type}} alert-dismissible fade show" role="alert" id="alert_msg" style="visibility: hidden;">
+                <strong>{{msg}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="hideAlert()"></button>
+              </div>
             </div>
             <div class="col-md-3"></div>
 

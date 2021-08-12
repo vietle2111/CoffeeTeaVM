@@ -1,6 +1,6 @@
 import { Container } from 'src/app/models/container';
 import { Refill } from 'src/app/models/refill';
-import { Component, OnInit } from '@angular/core';
+import { APP_BOOTSTRAP_LISTENER, Component, OnInit } from '@angular/core';
 import { ContainerService } from 'src/app/services/container.service';
 import { RefillService } from 'src/app/services/refill.service';
 import { ActivatedRoute } from '@angular/router';
@@ -16,6 +16,7 @@ export class RefillingFormComponent implements OnInit {
   availableCtn: Container = new Container;
   dates:string = (new Date).toISOString();
   msg:string = "";
+  alert_type = "alert-light";  
 
   constructor(private cs: ContainerService, private rs: RefillService, private route:ActivatedRoute) { }
 
@@ -45,8 +46,13 @@ export class RefillingFormComponent implements OnInit {
         this.cs.updateCurrentContainer(ctn).subscribe(rs =>{console.log("Containers are updated!")});
         //update available containers status
         this.cs.getAvailableContainerValue().subscribe(c => {this.availableCtn=c});
+        this.alert_type = "alert-success";
       }
-    else this.msg="Please enter the refill amount!";
+    else {
+      this.msg="Please enter the refill amount!";
+      this.alert_type = "alert-warning";
+    }
+    document.getElementById("alert_msg").style.visibility = "visible";
   }
 
   newContainerValue(rf: any):any{
@@ -57,5 +63,9 @@ export class RefillingFormComponent implements OnInit {
     newCtn.sugarContainer = this.availableCtn.sugarContainer + rf.value.sugarRefill;
     newCtn.milkContainer = this.availableCtn.milkContainer + rf.value.milkRefill;
     return JSON.stringify(newCtn);
+  }
+
+  hideAlert(){
+    document.getElementById("alert_msg").style.visibility="hidden";
   }
 }
