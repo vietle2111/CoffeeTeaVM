@@ -13,7 +13,6 @@
                     <th scope="col">Container</th>
                     <th scope="col">Max Capacity</th>
                     <th scope="col">Available</th>
-                    <th scope="col">Fill</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -22,40 +21,30 @@
                     <td>Tea</td>
                     <td>{{maxCtn.teaContainer}} (kg)</td>
                     <td>{{availableCtn.teaContainer}} (kg)</td>
-                    <td><input name="tea_rf" type="number" value="0.0" max="{{(maxCtn.teaContainer-availableCtn.teaContainer).toFixed(3)}}" min="0.0"/> kg</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Coffee</td>
                     <td>{{maxCtn.coffeeContainer}} (kg)</td>
                     <td>{{availableCtn.coffeeContainer}} (kg)</td>
-                    <td><input name="coffee_rf" type="number" value="0.0" max="{{(maxCtn.coffeeContainer-availableCtn.coffeeContainer).toFixed(3)}}" min="0.0"/> kg</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>Water</td>
                     <td>{{maxCtn.waterContainer}} (liters)</td>
                     <td>{{availableCtn.waterContainer}} (liters)</td>
-                    <td><input name="water_rf" type="number" value="0.0" max="{{(maxCtn.waterContainer-availableCtn.waterContainer).toFixed(3)}}" min="0.0"/> liters</td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>Sugar</td>
                     <td>{{maxCtn.sugarContainer}} (kg)</td>
                     <td>{{availableCtn.sugarContainer}} (kg)</td>
-                    <td><input name="sugar_rf" type="number" value="0.0" max="{{(maxCtn.sugarContainer-availableCtn.sugarContainer).toFixed(3)}}" min="0.0"/> kg</td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td>Milk</td>
                     <td>{{maxCtn.milkContainer}} (liters)</td>
                     <td>{{availableCtn.milkContainer}} (liters)</td>
-                    <td><input name="milk_rf" type="number" value="0.0" max="{{(maxCtn.milkContainer-availableCtn.milkContainer).toFixed(3)}}" min="0.0"/> liters</td>
-                  </tr>
-                  <tr>
-                    <th scope="row"></th>
-                    <td colspan="3"><span name="msg"></span></td>
-                    <td><button #(click)="" class="btn btn-primary btn-sm">Fill Containers</button></td>
                   </tr>
                 </tbody>
               </table>
