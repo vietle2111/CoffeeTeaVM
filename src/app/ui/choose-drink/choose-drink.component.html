@@ -16,7 +16,8 @@
                     <label #drinkId id="id" name="id">{{dr.id}}</label>
                   </th>
                   <td><h6>{{dr.name}}</h6></td>
-                  <td><input name="numberOfCup_{{dr.id}}" id="numberOfCup_{{dr.id}}" type="number" placeholder="0" max="10" min="0" /> Cup
+                  <td><input name="numberOfCup_{{dr.id}}" id="numberOfCup_{{dr.id}}" type="number" placeholder="0" max="10" min="0" save=0.0
+                    oninput="validity.valid ? this.save = value : value = this.save;"/> Cup
                   </td>
                   <td> Rs. {{dr.cost}}/Cup</td>
                   <td><button (click)="addSaleList(dr)" class="btn btn-primary btn-sm">Get Drink</button></td>
