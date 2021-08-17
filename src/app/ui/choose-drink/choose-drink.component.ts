@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SaleList } from 'src/app/models/sale-list';
 import { SaleListService } from 'src/app/services/sale-list.service';
 import { Container } from 'src/app/models/container';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-choose-drink',
@@ -28,7 +29,6 @@ export class ChooseDrinkComponent implements OnInit {
   }
 
   addSaleList(dr:Drink){
-    //this.numberOfCup = Number(document.getElementById(`numberOfCup_${dr.id}`).innerText);
     this.numberOfCup=Number((<HTMLInputElement>document.getElementById(`numberOfCup_${dr.id}`)).value);
     let noc = this.numberOfCup;
     if (noc==0) {
@@ -47,17 +47,18 @@ export class ChooseDrinkComponent implements OnInit {
           this.newCtnValue.milkContainer<=0 || this.newCtnValue.sugarContainer<=0 ||
           this.newCtnValue.waterContainer<=0){
           this.alert_type = "alert-warning";
-          this.msg = "Containers are not enough. Please refill!";
+          this.msg = "Containers are not enough. Please contact to ADMIN for refilling!";
         }
         else{
           // update containers with new avalue
-          this.cs.updateCurrentContainer(this.newCtnValue).subscribe(rs => {});
+          //this.cs.updateCurrentContainer(this.newCtnValue).subscribe(rs => {});
           // add sales into salelist
           this.sls.addSaleList(this.setSaleListValue(dr,noc)).subscribe(rs =>{ 
             if (rs.saleListId!=0){
               this.msg = `${this.numberOfCup} ${dr.name}(s) have been made.`;
             }});
           this.alert_type = "alert-success";
+          this.msg = "Preparing for making "+dr.name;
         }
       });
     }

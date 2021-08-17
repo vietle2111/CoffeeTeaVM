@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RefillingFormComponent } from './ui/refilling-form/refilling-form.component';
 import { ChooseDrinkComponent } from './ui/choose-drink/choose-drink.component';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { ContainerStatusComponent } from './ui/container-status/container-status.component';
 import { ReportOptionComponent } from './ui/report-option/report-option.component';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { SaleListDetailComponent } from './ui/sale-list-detail/sale-list-detail.component';
 import { RefillingDetailComponent } from './ui/refilling-detail/refilling-detail.component';
+import { LoginComponent } from './ui/login/login.component';
+import { SignupComponent } from './ui/signup/signup.component';
+import { HeaderComponent } from './ui/header/header.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { RefillingDetailComponent } from './ui/refilling-detail/refilling-detail
     ContainerStatusComponent,
     ReportOptionComponent,
     SaleListDetailComponent,
-    RefillingDetailComponent
+    RefillingDetailComponent,
+    LoginComponent,
+    SignupComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,11 +40,7 @@ import { RefillingDetailComponent } from './ui/refilling-detail/refilling-detail
   providers: [],
   bootstrap: [
     AppComponent,
-    ChooseDrinkComponent,
-    ContainerStatusComponent,
-    ReportOptionComponent,
-    SaleListDetailComponent, 
-    RefillingFormComponent
+    HeaderComponent
   ]
 })
 export class AppModule { }
